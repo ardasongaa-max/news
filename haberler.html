@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haber Merkezi</title>
+<link rel="stylesheet" href="haber.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ÜST BAR -->
+  <header class="topbar">
+    <a href="index.html" class="home-btn" title="Ana Sayfaya Dön">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/>
+      </svg>
+      <span>Ana Sayfaya Dön</span>
+    </a>
+
+    <div class="brand">
+      <span class="brand-dot"></span>
+      Haber Merkezi
+    </div>
+
+    <div class="update-box">
+      <button id="refreshBtn" class="refresh-btn">
+        <svg id="refreshIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 4v6h-6"/><path d="M1 20v-6h6"/>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+        </svg>
+        Haberleri Yenile
+      </button>
+      <span class="last-updated">Son Güncelleme: <b id="lastUpdated">—</b></span>
+    </div>
+  </header>
+
+  <!-- FİLTRE PANELİ -->
+  <section class="filter-panel">
+    <div class="search-row">
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Haber başlığı veya içeriğinde ara...">
+      </div>
+
+      <div class="select-group">
+        <select id="languageSelect">
+          <option value="tumu">Tüm Diller</option>
+          <option value="tr">Türkçe</option>
+          <option value="en">İngilizce</option>
+        </select>
+
+        <select id="sortSelect">
+          <option value="newest">En Yeni</option>
+          <option value="oldest">En Eski</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="category-row" id="categoryRow">
+      <button class="pill active" data-category="tumu">Tümü</button>
+      <button class="pill" data-category="genel">Genel</button>
+      <button class="pill" data-category="teknoloji">Teknoloji</button>
+      <button class="pill" data-category="spor">Spor</button>
+      <button class="pill" data-category="ekonomi">Ekonomi</button>
+      <button class="pill" data-category="saglik">Sağlık</button>
+      <button class="pill" data-category="bilim">Bilim</button>
+      <button class="pill" data-category="eglence">Eğlence</button>
+      <button class="pill" data-category="politika">Politika</button>
+    </div>
+  </section>
+
+  <!-- İÇERİK ALANI -->
+  <main class="content-area">
+
+    <!-- SOL: HABER LİSTESİ (dikey akış) -->
+    <aside class="news-list" id="newsList">
+      <!-- JS ile doldurulacak -->
+    </aside>
+
+    <!-- SAĞ: DETAY / GRID ALANI -->
+    <section class="news-detail" id="newsDetail">
+      <div class="empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 4h16v16H4z"/><path d="M4 9h16"/><path d="M9 9v11"/>
+        </svg>
+        <p>Detayları görmek için soldan bir haber seçin.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="statusBar" class="status-bar"></div>
+</div>
+
+<script src="haber.js"></script>
+</body>
+</html>
